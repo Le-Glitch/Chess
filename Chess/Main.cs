@@ -22,11 +22,12 @@ public class Main
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.GREEN);
 
-            foreach (Grid square in grid)
+            for (var i = 0; i < grid.GetLength(0); i++)
             {
-                square.Draw(squareNum);
-
-                squareNum++;
+                for (var j = 0; j < grid.GetLength(1); j++)
+                {
+                    grid[i, j].Draw(i + j);
+                }
             }
 
             Raylib.EndDrawing();

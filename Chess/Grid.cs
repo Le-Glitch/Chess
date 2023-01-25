@@ -5,6 +5,8 @@ public class Grid
 {
     Rectangle square;
 
+    Color green = new Color(118, 150, 68, 255);
+    Color beige = new Color(238, 238, 210, 255);
 
     public Grid(int x, int y)
     {
@@ -13,13 +15,13 @@ public class Grid
 
     public void Draw(int i)
     {
-        if (i%2 == 0)
+        if (i % 2 == 0)
         {
-            Raylib.DrawRectangleRec(square, Color.GREEN);
+            Raylib.DrawRectangleRec(square, green);
         }
         else
         {
-            Raylib.DrawRectangleRec(square, Color.BEIGE);
+            Raylib.DrawRectangleRec(square, beige);
         }
     }
 }
