@@ -1,14 +1,17 @@
 using System;
 using Raylib_cs;
 
-public class Grid
+public class Square
 {
     Rectangle square;
 
+    public int row;
+    public int column;
+    
     Color green = new Color(118, 150, 68, 255);
     Color beige = new Color(238, 238, 210, 255);
 
-    public Grid(int x, int y)
+    public Square(int x, int y)
     {
         square = new Rectangle(x, y, 100, 100);
     }
