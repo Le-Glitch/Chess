@@ -4,8 +4,8 @@ using System;
 public class Piece
 {
     PieceColour pieceColour;
-
-
+    PieceType pieceType;
+    
 
     enum PieceType
     {
@@ -15,13 +15,6 @@ public class Piece
         Rook,
         Queen,
         King
-    }
-
-    public Square[] validMoves()
-    {
-        
-
-        return null;
     }
 }
 
