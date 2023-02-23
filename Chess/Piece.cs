@@ -1,11 +1,16 @@
+using System.Numerics;
 using System.Xml;
 using System;
 
-public class Piece
+public abstract class Piece
 {
-    PieceColour pieceColour;
-    PieceType pieceType;
+    public Vector2 position = new Vector2();
+
+    public PieceColour pieceColour;
     
+    public virtual void Draw(){}
+
+    public virtual void ValidMoves(){}
 
     enum PieceType
     {

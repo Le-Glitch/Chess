@@ -1,3 +1,4 @@
+using System.Numerics;
 using System;
 using Raylib_cs;
 
@@ -5,14 +6,18 @@ public class Main
 {
     Square[,] grid = new Square[8, 8];
 
+    Piece[,] blackPieces = new Piece[8, 2];
+    Piece[,] whitePieces = new Piece[8, 2];
+
+    CheckStatus checkStatus = CheckStatus.None;
+
+
     public Main()
     {
 
-        Setup();
+        Board board = new Board(grid, blackPieces, whitePieces);
 
-        
-
-        while(!Raylib.WindowShouldClose())
+        while (!Raylib.WindowShouldClose())
         {
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.BLACK);
@@ -23,36 +28,36 @@ public class Main
         }
     }
 
-    public void Setup()
+    public void Graphics()
     {
         for (int i = 0; i < grid.GetLength(0); i++)
         {
             for (int j = 0; j < grid.GetLength(1); j++)
             {
-                grid[i, j] = new Square(i * Raylib.GetScreenWidth() / 8, j * Raylib.GetScreenHeight() / 8);
-                grid[i, j].row = i;
-                grid[i, j].column = j;
-            }
-        }
-    }
-
-
-
-    public void Graphics()
-    {
-        for (var i = 0; i < grid.GetLength(0); i++)
-        {
-            for (var j = 0; j < grid.GetLength(1); j++)
-            {
                 grid[i, j].Draw(i + j);
             }
         }
+
+        for (int i = 0; i < blackPieces.GetLength(0); i++)
+        {
+            for (int j = 0; j < blackPieces.GetLength(1); j++)
+            {
+                blackPieces[i,j].Draw();
+            }
+        }
+
+        for (int i = 0; i < whitePieces.GetLength(0); i++)
+        {
+            for (int j = 0; j < whitePieces.GetLength(1); j++)
+            {
+                whitePieces[i, j].Draw();
+            }
+        }
     }
+    
 }
 
-
-
-public enum CheckSTatus
+public enum CheckStatus
 {
     WhiteInCheck,
     WhiteCheckmated,
